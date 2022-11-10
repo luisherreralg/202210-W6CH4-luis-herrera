@@ -1,15 +1,8 @@
 import http from 'http';
 import url from 'url';
-import { program } from 'commander';
-import * as dotenv from 'dotenv';
 import { template } from './components/template/template.js';
-dotenv.config();
+import { portHandler } from './services/portHandler/portHandler.js';
 
-program.option('-p, --port <char>');
-program.parse();
-const { port } = program.opts();
-
-const portUser = port || process.env.PORT;
 const server = http.createServer((request, response) => {
     const queryObject = url.parse(request.url as string, true).query;
     console.log(queryObject);
@@ -25,5 +18,5 @@ const server = http.createServer((request, response) => {
     // response.end();
 });
 
-server.listen(portUser);
-console.log('Listen on port ', portUser);
+server.listen(portHandler());
+console.log('Listen on port ', portHandler());
