@@ -1,26 +1,28 @@
-# Serve Node-TypeScrip-Jest
+# Week 6 - Challenge 2
 
-## Desde un proyecto previo sin typescript
+## Calculadora WebService
 
-```shell
-mpm i
-```
+Crea una calculadora en Node en forma de web.
 
-Añadimos:
+El programa debe recibir dos números por query params
+(p.e. http://localhost:8000/calculator?a=6&b=3), y devolver el siguiente HTML:
 
--   typescript
--   @types/node
+Resultados:
 
-### Eslint
+6 + 3 = 9
 
--   @typescript-eslint/eslint-plugin
--   @typescript-eslint/parser
+6 - 3 = 3
 
-### Jest
+6 \* 3 = 18
 
--   ts-jest
--   @types/jest
+6 / 3 = 2
 
-```shell
- npm i -D typescript @types/node @typescript-eslint/eslint-plugin @typescript-eslint/parser ts-jest @types/jest
-```
+Si el usuario no ha proporcionado alguno de los números o éstos no son de tipo número, la aplicación debe devolver un HTML con un mensaje de error e interrumpir la ejecución del programa con un código de error.
+
+La app debe abrirse en un puerto por defecto que esté configurado como variable de entorno, pero también se tiene que poder decir expresamente por línea de comandos en qué puerto queremos que se abra (p.e., `node . --port 4000`). Usar el paquete `commander`.
+
+Si la request no va a /calculator, la app debe responder con un 404.
+
+## Opción extra
+
+Recoger los números en un formulario y recalcular los valores, utilizando SOLO vanila JS
