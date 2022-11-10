@@ -14,7 +14,7 @@ const server = http.createServer((request, response) => {
         template(queryObject.value1 as string, queryObject.value2 as string)
     );
 
-    // Me reinicia el servidor
+    // No tengo claro para qué se usa el end
     // response.end();
 });
 
